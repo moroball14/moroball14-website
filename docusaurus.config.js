@@ -6,20 +6,20 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "moroball14",
-  favicon: "img/favicon.ico",
+  title: "moroball14 Site",
+  favicon: "img/freecorn.ico",
 
   // Set the production url of your site here
   url: "https://your-docusaurus-test-site.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: "moroball14-website/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "moroball14", // Usually your GitHub org/user name.
   projectName: "moroball14-website", // Usually your repo name.
-  deploymentBranch: "main",
+  deploymentBranch: "gh-pages",
   trailingSlash: false,
 
   onBrokenLinks: "throw",
@@ -29,8 +29,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "ja",
+    locales: ["ja"],
   },
 
   presets: [
@@ -63,27 +63,14 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/freecorn.png",
       navbar: {
-        title: "My Site",
+        title: "moroball14 Site",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+          alt: "moroball14 Site Logo",
+          src: "img/freecorn.png",
         },
-        items: [
-          {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
+        items: [{ to: "/blog", label: "Blog", position: "left" }],
       },
       footer: {
         style: "dark",
@@ -92,25 +79,25 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
+                label: "Blog",
+                to: "/blog",
               },
             ],
           },
           {
-            title: "Community",
+            title: "Account",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
                 label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                href: "https://twitter.com/moroball14",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/moroball14",
+              },
+              {
+                label: "note",
+                href: "https://note.com/moroball14",
               },
             ],
           },
@@ -123,12 +110,12 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/moroball14/moroball14-website",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} . Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
