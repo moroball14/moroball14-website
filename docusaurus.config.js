@@ -49,6 +49,8 @@ const config = {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          readingTime: ({ content, frontMatter, defaultReadingTime }) =>
+            defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
@@ -70,7 +72,11 @@ const config = {
           alt: "moroball14 Site Logo",
           src: "img/freecorn.png",
         },
-        items: [{ to: "/blog", label: "Blog", position: "left" }],
+        items: [
+          { to: "/docs/profile", label: "Profile", position: "left" },
+          { to: "/docs/jobs", label: "Jobs", position: "left" },
+          { to: "/blog", label: "Blog", position: "left" },
+        ],
       },
       footer: {
         style: "dark",
@@ -79,8 +85,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                label: "Profile",
+                to: "/docs/profile",
+              },
+              {
+                label: "Jobs",
+                to: "/docs/jobs",
               },
             ],
           },
@@ -94,6 +104,14 @@ const config = {
               {
                 label: "GitHub",
                 href: "https://github.com/moroball14",
+              },
+              {
+                label: "Qiita",
+                href: "https://qiita.com/moroball14",
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/daiki-morokoshi-92b27025b/",
               },
               {
                 label: "note",
