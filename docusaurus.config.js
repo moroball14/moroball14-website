@@ -85,8 +85,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                label: "Profile",
+                to: "/docs/profile",
+              },
+              {
+                label: "Jobs",
+                to: "/docs/jobs",
               },
             ],
           },
@@ -100,6 +104,14 @@ const config = {
               {
                 label: "GitHub",
                 href: "https://github.com/moroball14",
+              },
+              {
+                label: "Qiita",
+                href: "https://qiita.com/moroball14",
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/daiki-morokoshi-92b27025b/",
               },
               {
                 label: "note",
