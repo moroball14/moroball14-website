@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
     to: "/docs/jobs",
   },
   {
-    title: "(準備中)Blog",
+    title: "Blog",
     Svg: require("@site/static/img/blog.svg").default,
     description: <>読書メモ、技術メモ、日記、雑記、など</>,
     to: "/blog",
