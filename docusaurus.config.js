@@ -43,7 +43,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/moroball14/moroball14-website/tree/main/",
         },
         blog: {
           showReadingTime: true,
@@ -52,7 +52,8 @@ const config = {
           readingTime: ({ content, frontMatter, defaultReadingTime }) =>
             defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/moroball14/moroball14-website/tree/main/",
+          blogTitle: "moroball14 Blog",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
