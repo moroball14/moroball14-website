@@ -2,7 +2,7 @@
 slug: apollo-link-overview
 title: Apollo Linkについての概要を調べる
 authors: moroball14
-tags: []
+tags: ["Apollo", "GraphQL"]
 ---
 
 個人で開発中のアプリで Apollo を使っていて、Link という概念について深ぼれていないなと思い、調べてみる。
