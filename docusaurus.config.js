@@ -54,6 +54,8 @@ const config = {
           editUrl:
             "https://github.com/moroball14/moroball14-website/tree/main/",
           blogTitle: "moroball14 Blog",
+          blogSidebarTitle: "All posts",
+          blogSidebarCount: "ALL",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
