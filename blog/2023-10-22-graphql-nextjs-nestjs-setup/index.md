@@ -11,6 +11,12 @@ tags: ["GraphQL", "Next.js", "NestJS"]
 
 <!--truncate-->
 
+## サンプルリポジトリ
+
+backend: https://github.com/moroball14/moroball14-demo-graphql-server
+
+frontend: https://github.com/moroball14/moroball14-demo-graphql-client
+
 ## 事前準備
 
 まずは、NestJS でアプリケーションを一つ作成する。
