@@ -148,14 +148,17 @@ sequenceDiagram
 
 ## まとめ
 
-- Google Cloud での認証について調べてみた
+- Google Cloud での認証は以下 3 つの方法がある
+  - OAuth 2.0
+  - Google Cloud サービスの認可
+  - アプリケーションのデフォルト認証情報
 - GitHub Actions から Google Cloud のリソースに対して操作を行うためには、Workload Identity 連携を使う
 - Workload Identity 連携を使うと、安全に外部 ID に対してサービスアカウントと同等の権限を持った IAM ロールを GitHub Actions のワークフローに付与できる
 - その認証情報をもとに、GitHub Actions から Google Cloud のリソースに対して操作を行う
 
 ## その他
 
-結構 Workload Identity 連携についての詳細は飛ばした。たとえば実際に構成していくときには Workload Identity プールとプロバイダといった概念と役割を理解する必要がある。それらも含めて解説している記事があるので、参考にすると良さそう。
+結構 Workload Identity 連携についての詳細は飛ばした。実際に構成していくときには Workload Identity プールとプロバイダといった概念と役割を理解する必要がある。それらも含めて解説している記事があるので、参考にすると良さそう。
 
 - https://zenn.dev/cloud_ace/articles/7fe428ac4f25c8
 - https://blog.lacolaco.net/2022/07/github-actions-oidc-google-cloud/
