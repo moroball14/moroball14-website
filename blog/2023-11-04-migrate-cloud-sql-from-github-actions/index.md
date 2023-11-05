@@ -71,10 +71,10 @@ https://github.com/marketplace/actions/google-cloud-sql-proxy
 
 ということで、やることをまとめると
 
-- 1. Workload Identity 連携を構成する
-- 2. Cloud SQL インスタンスを作成する
-- 3. Cloud SQL インスタンスに接続する Cloud SQL Auth Proxy を構成する
-- 4. GitHub Actions から Cloud SQL Auth Proxy を経由して Cloud SQL インスタンスに接続してマイグレーションを実行する
+1. Workload Identity 連携を構成する
+2. Cloud SQL インスタンスを作成する
+3. Cloud SQL インスタンスに接続する Cloud SQL Auth Proxy を構成する
+4. GitHub Actions から Cloud SQL Auth Proxy を経由して Cloud SQL インスタンスに接続してマイグレーションを実行する
 
 で、1~3 は基本的には Google Cloud のコンソール画面から設定を行う。4 が GitHub Actions での設定になる。
 
@@ -107,6 +107,8 @@ https://www.prisma.io/docs/concepts/components/prisma-migrate/mental-model
 
 `prisma migrate deploy` は、移行ファイルは生成せずに保留中の移行を適用してくれるので CI/CD パイプラインで実行するイメージ。
 
+やることの整理ができたので実装していく。
+
 ## 1. Workload Identity 連携を構成する
 
 以下に沿って設定を行う。
@@ -119,7 +121,7 @@ https://cloud.google.com/iam/docs/workload-identity-federation-with-deployment-p
 
 と書いてあった。今回は気にせず進んじゃうが、商用で利用するのであれば、この Workload Identity プールとプロバイダの管理に専用のプロジェクトを作成した方が良いはず。
 
-「Workload Identity のプールとプロバイダを作成する」に関しても誘導されている通りに手順をこなせば良い。先ほどの「属性の魔ピングと条件を定義する」に関しても GitHub Actions においては、 `google.subject=assertion.sub` を指定すれば良い。実際にはデフォルトで google.subject が設定されている項目が存在するので、対応する入力欄に `assertion.sub` を入力すれば良いだけで、迷うこともなかった。
+「Workload Identity のプールとプロバイダを作成する」に関しても誘導されている通りに手順をこなせば良い。先ほどの「属性のマッピングと条件を定義する」に関しても GitHub Actions においては、 `google.subject=assertion.sub` を指定すれば良い。実際にはデフォルトで google.subject が設定されている項目が存在するので、対応する入力欄に `assertion.sub` を入力すれば良いだけで、迷うこともなかった。
 
 「デプロイパイプラインを認証する」も慣れていると、それほど迷わなかった。
 
@@ -170,8 +172,9 @@ Workload Identity 連携が完了したのちに、行う。
 
 `workload_identity_provider` と `service_account` は GitHub の Secrets に設定しておく。
 
-workload_identity_provider は値の設定に注意が必要。
-project id ではなく project 番号を指定する。
+`workload_identity_provider` は値の設定に注意が必要。形式としては、 `projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID` だが、 `PROJECT_NUMBER` を Project の ID と間違えないように（自分は間違えた）。Project 番号を指定する。
+
+`service_account` は「1. Workload Identity 連携を構成する」で作成したサービスアカウントのメールアドレスを指定する。
 
 ローカルでの確認方法は以下を参考にする。
 
@@ -294,9 +297,9 @@ SET search_path TO schema_name;
                 List of relations
  Schema  |        Name        | Type  |  Owner
 ---------+--------------------+-------+----------
- public | _prisma_migrations | table | postgres
- public | posts              | table | postgres
- public | users              | table | postgres
+ public  | _prisma_migrations | table | postgres
+ public  | posts              | table | postgres
+ public  | users              | table | postgres
 (3 rows)
 ```
 
